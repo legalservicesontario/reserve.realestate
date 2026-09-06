@@ -1,0 +1,68 @@
+{
+  "listings": [
+    {
+      "id": "los-corales-beachfront",
+      "title": "Los Corales Beachfront Condo",
+      "price": 295000,
+      "saleOrRent": "sale",
+      "type": "condo",
+      "beds": 2,
+      "baths": 2,
+      "area_m2": 110,
+      "location": "Los Corales, Bávaro, Dominican Republic",
+      "lat": 18.5795,
+      "lng": -68.3697,
+      "featured": true,
+      "images": ["https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1200&q=80"],
+      "description": "Beachside condo with ocean views, within walking distance to restaurants and beaches. Ideal for vacation rentals."
+    },
+    {
+      "id": "cocotal-golf-villa",
+      "title": "Cocotal Golf & Country Club Villa",
+      "price": 380000,
+      "saleOrRent": "sale",
+      "type": "villa",
+      "beds": 2,
+      "baths": 2,
+      "area_m2": 145,
+      "location": "Bávaro / Punta Cana, Dominican Republic",
+      "lat": 18.5873,
+      "lng": -68.3985,
+      "featured": true,
+      "images": ["https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80"],
+      "description": "Modern 2-bedroom villa in a golf & country club community; strong rental demand and gated security."
+    },
+    {
+      "id": "el-cortecito-residence",
+      "title": "El Cortecito Poolside Condo",
+      "price": 240000,
+      "saleOrRent": "sale",
+      "type": "condo",
+      "beds": 2,
+      "baths": 2,
+      "area_m2": 98,
+      "location": "El Cortecito, Sosúa, Dominican Republic",
+      "lat": 19.7805,
+      "lng": -70.4670,
+      "featured": false,
+      "images": ["https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=1200&q=80"],
+      "description": "Ground floor poolside condo, walking distance to El Batey and local beaches. Good cashflow for short-term rentals."
+    },
+    {
+      "id": "tamarindo-ocean-villa",
+      "title": "Tamarindo Oceanfront Luxury Villa",
+      "price": 1200000,
+      "saleOrRent": "sale",
+      "type": "villa",
+      "beds": 4,
+      "baths": 4,
+      "area_m2": 350,
+      "location": "Tamarindo, Guanacaste, Costa Rica",
+      "lat": 10.2992,
+      "lng": -85.8395,
+      "featured": true,
+      "images": ["https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80"],
+      "description": "Oceanfront villa in Tamarindo with private pool and high-end finishes. Popular with surfers and vacation rental guests."
+    }
+  ]
+}

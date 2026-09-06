@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Map — Reserve Real Estate</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { reserve: { 950:'#0B131F',900:'#142132',800:'#1E324A',100:'#F0F4F8',50:'#F8FAFC', gold:'#C5A059' } } } } }
+  </script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <style> #map{height:75vh;} </style>
+</head>
+<body class="bg-reserve-50 text-reserve-950 min-h-screen">
+  <header class="bg-white border-b sticky top-0 z-40">
+    <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+      <a href="/" class="font-bold">RESERVE</a>
+      <nav class="hidden md:flex gap-4">
+        <a href="/">Home</a>
+        <a href="/post-property.html">Post Property</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-4 py-6">
+    <h1 class="text-2xl font-bold">Interactive Map</h1>
+    <p class="text-sm text-gray-600">Pan and zoom to explore listings; click markers for details.</p>
+
+    <div id="map" class="mt-4 rounded overflow-hidden border"></div>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    async function loadMap(){
+      const res = await fetch('data/properties.json');
+      const data = await res.json();
+      const map = L.map('map').setView([18.6, -69.9], 8);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
+
+      data.listings.forEach(p => {
+        if(p.lat && p.lng){
+          const marker = L.marker([p.lat,p.lng]).addTo(map);
+          marker.bindPopup(`<strong>${p.title}</strong><br>${p.location}<br>$${p.price.toLocaleString()} ${p.saleOrRent=='rent'?'/month':''}<br><a href="property.html?id=${p.id}">View</a>`);
+        }
+      });
+    }
+    loadMap().catch(err=>console.error(err));
+  </script>
+</body>
+</html>

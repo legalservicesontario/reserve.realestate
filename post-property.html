@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Post Your Property — Reserve Real Estate</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-reserve-50 text-reserve-950 min-h-screen">
+  <header class="bg-white border-b sticky top-0 z-40">
+    <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+      <a href="/" class="font-bold">RESERVE</a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-3xl px-4 py-8">
+    <h1 class="text-2xl font-bold">Post Your Property</h1>
+    <p class="text-sm text-gray-600">Landlords and sellers: submit your listing and we will contact you to confirm details.</p>
+
+    <!-- Formspree: replace YOUR_FORMSPREE_ID -->
+    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="mt-4 bg-white p-4 rounded shadow grid gap-3">
+      <input type="text" name="name" placeholder="Full name" required class="p-3 border rounded" />
+      <input type="email" name="email" placeholder="Email" required class="p-3 border rounded" />
+      <input type="tel" name="phone" placeholder="Phone" class="p-3 border rounded" />
+      <input type="text" name="title" placeholder="Listing title (e.g. Beachfront 3BR Villa)" class="p-3 border rounded" />
+      <textarea name="message" rows="5" placeholder="Details, price, location, any images (links)" class="p-3 border rounded"></textarea>
+      <button type="submit" class="px-4 py-2 bg-reserve-950 text-white rounded">Submit Listing</button>
+    </form>
+  </main>
+</body>
+</html>
