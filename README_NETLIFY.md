@@ -1,29 +1,23 @@
-# reserve.realestate
+# Netlify deployment notes
 
-Static scaffold for Reserve Real Estate — listings for Dominican Republic and Costa Rica.
+This repository is configured for Netlify. Files added:
 
-Quick start
+- netlify.toml - publish set to repository root and functions directory configured.
+- _redirects - SPA fallback to index.html for client-side routing.
+- netlify/functions/hello.js - a sample serverless function to test Netlify Functions.
 
-1. Deploy to Netlify: push this repo to GitHub and connect Netlify to the repository. The site is static — select "main" branch and deploy.
-2. Replace Formspree endpoint in post-property.html with your Formspree form id.
-3. Add PayPal/Stripe links where needed in property and commercial pages.
-4. Images: replace /assets/images/* placeholders with your photos.
+Redeploy triggered: 2026-09-06T19:36:30Z by GitHub Copilot
 
-Map
+To deploy:
+1. Go to https://app.netlify.com/ and "Add new site" → "Import from Git" → choose this repository.
+2. Branch: main. Build command: (leave blank). Publish directory: .
+3. Deploy site. Netlify will build and publish the site and provide a netlify.app URL.
 
-- Uses Leaflet + OpenStreetMap (no API key required). map.html loads data/properties.json and places markers.
+Environment variables (if you add Stripe functions later):
+- STRIPE_SECRET_KEY=sk_live_...
+- SITE_URL=https://your-site.netlify.app
 
-Payments
-
-- PayPal: add direct PayPal link or PayPal Checkout button on property pages.
-- Stripe: recommended to create a serverless function (Netlify Function or Vercel) to create Checkout Sessions. This scaffold includes placeholders and instructions.
-
-Contact & chat
-
-- WhatsApp button wired to +1 647-848-5997.
-
-If you want, I can now:
-- Add Netlify _redirects or Functions for Stripe.
-- Wire Formspree (if you provide form id).
-- Add real images and agent headshots (upload as assets/images)
+To test functions locally you can use Netlify CLI:
+- npm i -g netlify-cli
+- netlify dev
 
