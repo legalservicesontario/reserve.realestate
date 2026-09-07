@@ -2,7 +2,9 @@
   publish = "."
   functions = "netlify/functions"
 
+# Redirect 404s to index.html for client-side routing
+# but allow actual files to be served normally
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200
+  status = 404
