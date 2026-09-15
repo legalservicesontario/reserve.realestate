@@ -6,8 +6,11 @@ async function loadMap(){
 
   listings.forEach(p => {
     if(p.lat != null && p.lng != null){
+      const title = window.escapeHtml ? window.escapeHtml(p.title) : String(p.title ?? '');
+      const location = window.escapeHtml ? window.escapeHtml(p.location) : String(p.location ?? '');
+      const detailsUrl = window.propertyUrl ? window.propertyUrl(p.id) : `property.html?id=${encodeURIComponent(p.id)}`;
       const marker = L.marker([p.lat,p.lng]).addTo(map);
-      marker.bindPopup(`<strong>${p.title}</strong><br>${p.location}<br>$${p.price.toLocaleString()} ${p.saleOrRent=='rent'?'/month':''}<br><a href="${window.propertyUrl ? window.propertyUrl(p.id) : `property.html?id=${encodeURIComponent(p.id)}`}">View</a>`);
+      marker.bindPopup(`<strong>${title}</strong><br>${location}<br>$${p.price.toLocaleString()} ${p.saleOrRent=='rent'?'/month':''}<br><a href="${detailsUrl}">View</a>`);
     }
   });
 }
