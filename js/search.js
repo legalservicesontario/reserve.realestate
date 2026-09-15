@@ -7,7 +7,7 @@ function renderFeatured(listings){
     const el = document.createElement('article');
     el.className = 'bg-white rounded shadow overflow-hidden';
     el.innerHTML = `
-      <a href="property.html?id=${p.id}" class="block">
+      <a href="${window.propertyUrl ? window.propertyUrl(p.id) : `property.html?id=${encodeURIComponent(p.id)}`}" class="block">
         <div class="aspect-[4/3] bg-gray-100 overflow-hidden"><img src="${p.images[0]}" class="w-full h-full object-cover" alt="${p.title}"/></div>
         <div class="p-3">
           <p class="font-bold">$${p.price.toLocaleString()}</p>
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if(q){
       const match = props.find(p => p.id===q || p.title.toLowerCase().includes(q.toLowerCase()));
       if(match){
-        window.location.href = `property.html?id=${match.id}`;
+        window.location.href = window.propertyUrl ? window.propertyUrl(match.id) : `property.html?id=${encodeURIComponent(match.id)}`;
         return;
       }
     }

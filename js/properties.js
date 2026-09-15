@@ -8,4 +8,15 @@ async function fetchProperties(){
     return [];
   }
 }
+
+function propertyUrl(propertyId){
+  const dedicatedPages = {
+    'cocotal-golf-villa': 'property-cocotal-villa.html',
+    'los-corales-beachfront': 'property-los-corales-condo.html',
+    'tamarindo-ocean-villa': 'property-tamarindo-villa.html'
+  };
+  return dedicatedPages[propertyId] || `property.html?id=${encodeURIComponent(propertyId)}`;
+}
+
 window.fetchProperties = fetchProperties;
+window.propertyUrl = propertyUrl;
